@@ -17,7 +17,7 @@ export default function Home() {
         <p>Segunda-feira, 05 de agosto</p>
 
         <div className="mt-6 flex items-center gap-2">
-          <Input placeholder="Faça sua busca"></Input>
+          <Input placeholder="Faça sua busca" />
           <Button>
             <SearchIcon />
           </Button>
