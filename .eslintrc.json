@@ -1,6 +1,6 @@
 {
   "extends": ["next/core-web-vitals", "next/typescript"],
   "rules": {
-    "no-unused-vars": "error"
+    "no-var": 0
   }
 }
