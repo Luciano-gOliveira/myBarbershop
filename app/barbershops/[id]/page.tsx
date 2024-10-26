@@ -56,7 +56,6 @@ const BarbershopPage = async ({ params }: BarbershopPage) => {
               <MenuIcon />
             </Button>
           </SheetTrigger>
-
           <SidebarSheet />
         </Sheet>
       </div>
