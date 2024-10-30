@@ -110,8 +110,6 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
     setBookingSheetIsOpen(false)
   }
 
-  console.log({ dayBookings })
-
   const handleDateSelect = (date: Date | undefined) => {
     setSelectedDay(date)
   }
@@ -131,8 +129,6 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
       })
       await createBooking({
         serviceId: service.id,
-        // eslint-disable-next-line
-        userId: (data?.user as any).id,
         date: newDate,
       })
       handleBookingSheetOpenChange()
