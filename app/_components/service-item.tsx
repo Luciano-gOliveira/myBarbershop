@@ -75,7 +75,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
   //2. salvar o agendamento para o usuario logado [x]
   //3. não deixar o usuario reservar sem estar logado []
   const { data } = useSession()
-
+  const [signInDialogIsOpen, setSignInDialogIsOpen] = useState(false)
   const [selectedDay, setSelectedDay] = useState<Date | undefined>(undefined)
   const [selectedTime, setSelectedTime] = useState<string | undefined>(
     undefined,
@@ -95,6 +95,13 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
     }
     fetch()
   }, [selectedDay, service.id])
+
+  const handleBookingClick = () => {
+    if (data?.user) {
+      return setBookingSheetIsOpen(true)
+    }
+    return setSignInDialogIsOpen(true)
+  }
 
   const handleBookingSheetOpenChange = () => {
     setSelectedDay(undefined)
@@ -165,7 +172,11 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                 open={bookingSheetIsOpen}
                 onOpenChange={handleBookingSheetOpenChange}
               >
-                <Button variant="secondary" size="sm">
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  onClick={handleBookingClick}
+                >
                   Reservar
                 </Button>
                 <SheetContent className="overflow-y-auto px-0 [&::-webkit-scrollbar]:hidden">
@@ -281,7 +292,10 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
         </CardContent>
       </Card>
 
-      <Dialog>
+      <Dialog
+        open={signInDialogIsOpen}
+        onOpenChange={(open) => setSignInDialogIsOpen(open)}
+      >
         <DialogContent className="w-[90%]">
           <SignInDialog />
         </DialogContent>
