@@ -90,7 +90,7 @@ const Home = async () => {
           <Image
             fill
             className="rounded-xl object-cover"
-            src="/banner-01.svg"
+            src="/banner-01.jpeg"
             alt="Agende nos melhores com T Barber"
           />
         </div>
