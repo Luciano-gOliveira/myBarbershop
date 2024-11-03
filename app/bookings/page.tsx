@@ -59,9 +59,11 @@ const Bookings = async () => {
         <div className="border-b border-solid pb-5">
           <h1 className="text-xl font-bold">Agendamentos</h1>
         </div>
-        <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
-          Confirmados
-        </h2>
+        {confirmedBookings.length > 0 && (
+          <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
+            Confirmados
+          </h2>
+        )}
         {confirmedBookings.map((booking) => (
           <BookingItem key={booking.id} booking={booking} />
         ))}
